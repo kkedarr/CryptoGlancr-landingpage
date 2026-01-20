@@ -1,37 +1,34 @@
 import { motion } from "framer-motion";
 import foregroundImg from "../assets/images/mockupimageforsecondsection.png";
-import brandLogo from "../assets/images/gfilogo.png"; 
-import textLogo from "../assets/images/gfilogotext.png";
+import brandLogo from "../assets/images/cryptoglancrlogo.png";
 import ellipse1 from "../assets/images/eclipse1intro.png";
 
 const Intro = () => {
   return (
-    <section className="bg-[#FCFCFD] py-20 px-6 md:px-16 lg:px-32">
+    <section className="bg-white py-20 px-6 md:px-16 lg:px-32">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16">
 
-        {/* Left Image */}
+        {/* Left Visual */}
         <motion.div
           initial={{ x: -60, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex-1 w-full h-full relative flex justify-center items-center bg-[#FFEDCB] rounded-3xl overflow-hidden"
+          className="flex-1 w-full h-full relative flex justify-center items-center bg-[#CFE9FB] rounded-3xl overflow-hidden"
         >
-          {/* Ellipse Background Image */}
+          {/* Ellipse Background */}
           <img
             src={ellipse1}
-            alt="ellipses background"
-            className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+            alt="Decorative background"
+            className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-70"
           />
 
-          {/* Floating Phone Image (always above ellipse) */}
+          {/* Floating Mockup */}
           <motion.img
             src={foregroundImg}
-            alt="Glovest Mobile"
-            className="relative z-10 w-full max-w-[400px] mx-auto sm:mr-60 mr-0"
-            animate={{
-              y: [200, 40, 200],
-            }}
+            alt="CryptoGlance dashboard preview"
+            className="relative z-10 w-full max-w-[420px] mx-auto sm:mr-52 mr-0"
+            animate={{ y: [180, 40, 180] }}
             transition={{
               duration: 4,
               repeat: Infinity,
@@ -40,55 +37,56 @@ const Intro = () => {
           />
         </motion.div>
 
-
-
-
-
-        {/* Right Text */}
+        {/* Right Content */}
         <motion.div
           initial={{ x: 60, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-          className="flex-1 text-center md:text-justify"
+          className="flex-1 text-center md:text-left"
         >
-          {/* Logo */}
+          {/* Brand */}
           <div className="flex items-center justify-center md:justify-start mb-6">
             <img
               src={brandLogo}
-              alt="Global Financial Investments"
+              alt="CryptoGlance Logo"
               className="w-10 h-10 mr-3 object-contain"
             />
-            <img src={textLogo} alt="Logo Text" className="h-4 sm:h-5 md:h-6 object-contain max-w-[70px] sm:max-w-[100px]" />
+            <span className="font-bold text-[16px] sm:text-[18px] md:text-[20px] tracking-tight text-[#04172C] leading-none">
+              Crypto<span className="text-[#6CB6E8]">Glancr</span>
+            </span>
           </div>
 
-          {/* Heading */}
-          <h2 className="md:text-3xl sm:text-base text-center font-semibold text-[#1C2024] mb-5 leading-tight">
-            Coming soon:{" "}<span className="text-[#1C2024] font-semibold ">Glovest</span>
+          {/* Headings */}
+          <h2 className="text-2xl md:text-3xl font-bold text-[#04172C] mb-4 leading-tight">
+            Your Window Into the Crypto Market
           </h2>
-          <h4 className="md:text-2xl sm:text-base text-center font-normal text-[#1C2024] mb-5 leading-tight">
-            <span className="text-[#1C2024] font-semibold ">Glovest</span>{" "}
-            by Global Financial Investment
+
+          <h4 className="text-base md:text-lg text-[#5B728A] mb-6 leading-relaxed">
+            Real-time prices, deep analytics, and trusted crypto news — built for
+            traders, investors, and curious beginners.
           </h4>
 
-          {/* Paragraphs */}
-          <p className="text-[#1C2024] text-sm sm:text-base leading-relaxed mb-4">
-            Glovest is a next-generation financial app by <span className="font-semibold text-[#1C2024]">Global Financial Investment</span>,
-            designed to simplify how poeple and businesses manage money across borders.
+          {/* Description */}
+          <p className="text-[#0B1F33] text-sm sm:text-base leading-relaxed mb-4">
+            CryptoGlance brings together live market data, interactive charts,
+            trending assets, and global crypto news into one powerful dashboard.
+            No noise. No clutter. Just clarity.
           </p>
 
-          <p className="text-[#1C2024] text-sm sm:text-base leading-relaxed mb-4"> Whether you're sending funds to family,
-            freelancing with global clients, or running a business that handles international payments,  
-            Glovest offers a secure, all-in-one platform for both fiat and crypto transactions.
+          <p className="text-[#0B1F33] text-sm sm:text-base leading-relaxed mb-4">
+            Whether you’re tracking Bitcoin, exploring altcoins, or analyzing
+            long-term trends, CryptoGlance helps you make informed decisions
+            faster and with confidence.
           </p>
 
-          <p className="text-[#1C2024] text-sm sm:text-base leading-relaxed">
-           With multi-currency wallets, real-time transfers, and powerful tools for global finance, Glovest is the smarter way to send, 
-           recieve, and grow your money — anywhere in the world.
+          <p className="text-[#0B1F33] text-sm sm:text-base leading-relaxed mb-6">
+            Built with speed, accessibility, and beautiful design in mind, the
+            platform works seamlessly across desktop and mobile devices.
           </p>
 
-          <p className="text-[#1C2024] text-center font-semibold text-sm sm:text-base leading-relaxed">
-           Stay tuned — Glovest is coming soon!
+          <p className="text-[#04172C] font-semibold text-sm sm:text-base">
+            Launching soon — join the early access waitlist 🚀
           </p>
         </motion.div>
       </div>
@@ -97,3 +95,4 @@ const Intro = () => {
 };
 
 export default Intro;
+

@@ -4,51 +4,51 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     id: 1,
-    text: "Finally, I can receive payments from my international clients without the usual delays. The wallet handles both crypto and local currency perfectly – it’s been a game-changer for my freelance work.",
+    text: "CryptoGlancr helped me finally make sense of my on-chain activity. The interface is clean, and the insights are easy to understand without feeling overwhelming.",
     name: "Tolu A.",
-    location: "Nigeria",
+    location: "Product Designer",
     rating: 5,
   },
   {
     id: 2,
-    text: "I use the app to pay suppliers in Ghana and Namibia. The transfers are fast, and the exchange rates are fair. It’s simple, secure, and reliable – exactly what small businesses need.",
+    text: "I like how everything is presented clearly — from portfolio visibility to market movements. It feels built for people who want clarity, not noise.",
     name: "Kabelo M.",
-    location: "South Africa",
+    location: "Startup Founder",
     rating: 5,
   },
   {
     id: 3,
-    text: "The staking feature is my favorite part. I can grow my stablecoin balance while still being able to send funds globally. It’s like having banking and investing in one app.",
+    text: "What stood out for me is the balance between simplicity and depth. I can quickly check key metrics without digging through complex dashboards.",
     name: "Anastasia",
-    location: "Russia",
+    location: "Crypto Researcher",
     rating: 5,
   },
   {
     id: 4,
-    text: "Finally, I can receive payments from my international clients without the usual delays. The wallet handles both crypto and local currency perfectly – it’s been a game-changer for my freelance work.",
-    name: "Tolu A.",
-    location: "Nigeria",
+    text: "The design feels intentional. Smooth animations, clear hierarchy, and no unnecessary clutter. It’s one of the few crypto platforms that feels calm to use.",
+    name: "Daniel K.",
+    location: "Frontend Engineer",
     rating: 5,
   },
   {
     id: 5,
-    text: "I use the app to pay suppliers in Ghana and Namibia. The transfers are fast, and the exchange rates are fair. It’s simple, secure, and reliable – exactly what small businesses need.",
-    name: "Kabelo M.",
-    location: "South Africa",
+    text: "CryptoGlancr makes tracking trends feel intuitive. I don’t need to jump between multiple tools anymore just to understand what’s happening.",
+    name: "Amina S.",
+    location: "Market Analyst",
     rating: 5,
   },
   {
     id: 6,
-    text: "The staking feature is my favorite part. I can grow my stablecoin balance while still being able to send funds globally. It’s like having banking and investing in one app.",
-    name: "Anastasia",
-    location: "Russia",
+    text: "You can tell this product was designed with users in mind. Everything loads fast, and the layout works beautifully across devices.",
+    name: "Victor L.",
+    location: "Digital Consultant",
     rating: 5,
   },
 ];
 
 const Reviews = () => {
   return (
-    <section className="w-full px-6 md:px-20 py-20 bg-white text-gray-900 font-geist">
+    <section className="w-full px-6 md:px-20 py-20 bg-surface text-textPrimary font-geist">
       {/* Header */}
       <motion.div
         className="max-w-7xl mx-auto text-center mb-16"
@@ -57,13 +57,15 @@ const Reviews = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
       >
-        <p className="text-sm font-medium text-[#AB6400] uppercase tracking-wide mb-2">
+        <p className="text-sm font-medium text-brandSoft uppercase tracking-wide mb-2">
           Testimonials
         </p>
-        <h2 className="text-2xl md:text-4xl font-semibold mb-2 tracking-tighter">
-          Customer Reviews
+        <h2 className="text-2xl md:text-4xl font-semibold mb-2 tracking-tighter text-brand">
+          Trusted by early users
         </h2>
-        <p className="text-sm md:text-base text-gray-500">Hear what our users are saying</p>
+        <p className="text-sm md:text-base text-textSecondary">
+          What people think about CryptoGlancr
+        </p>
       </motion.div>
 
       {/* Reviews Grid */}
@@ -74,9 +76,7 @@ const Reviews = () => {
         viewport={{ once: true }}
         variants={{
           visible: {
-            transition: {
-              staggerChildren: 0.15,
-            },
+            transition: { staggerChildren: 0.15 },
           },
         }}
       >
@@ -88,28 +88,33 @@ const Reviews = () => {
               visible: { opacity: 1, y: 0 },
             }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="bg-[#F9F9F9] rounded-2xl p-8 flex flex-col justify-between min-h-[250px] shadow-sm hover:shadow-md transition-shadow duration-200"
+            className="bg-surface border border-borderSoft rounded-2xl p-8 flex flex-col justify-between min-h-[260px] shadow-sm hover:shadow-md transition-shadow duration-200"
           >
-            <p className="text-[#5E5E5E] text-sm md:text-base leading-relaxed mb-6">
+            <p className="text-textSecondary text-sm md:text-base leading-relaxed mb-6">
               “{review.text}”
             </p>
+
             <div className="flex items-center justify-between">
               {/* Avatar + Info */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm font-semibold text-gray-700">
+                <div className="w-10 h-10 rounded-full bg-sky flex items-center justify-center text-sm font-semibold text-brand">
                   {review.name
                     .split(" ")
                     .map((n) => n[0])
                     .join("")}
                 </div>
                 <div>
-                  <p className="text-sm font-semibold">{review.name}</p>
-                  <p className="text-xs text-gray-500">{review.location}</p>
+                  <p className="text-sm font-semibold text-brand">
+                    {review.name}
+                  </p>
+                  <p className="text-xs text-textSecondary">
+                    {review.location}
+                  </p>
                 </div>
               </div>
 
-              {/* Rating Stars */}
-              <div className="text-[#FFB800] text-sm">
+              {/* Rating */}
+              <div className="text-brandSoft text-sm">
                 {"★".repeat(review.rating)}
               </div>
             </div>
@@ -121,3 +126,4 @@ const Reviews = () => {
 };
 
 export default Reviews;
+

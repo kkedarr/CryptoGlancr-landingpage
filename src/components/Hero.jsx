@@ -13,24 +13,26 @@ const Hero = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
+
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
 
   const floatingBoxes = [
-    { top: "20%", right: "5%", flag: flagNG, amount: "₦200,000" },
-    { top: "55%", right: "5%", flag: flagNA, amount: "NAD 50,000" },
-    { top: "50%", left: "5%", flag: flagRU, amount: "₽200,000" },
-    { bottom: "10%", left: "0%", flag: flagZA, amount: "ZAR 100,000" },
+    { top: "20%", right: "5%", flag: flagNG, amount: "₦1,250,000" },
+    { top: "55%", right: "5%", flag: flagNA, amount: "NAD 82,000" },
+    { top: "50%", left: "5%", flag: flagRU, amount: "₽410,000" },
+    { bottom: "10%", left: "0%", flag: flagZA, amount: "ZAR 320,000" },
   ];
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!email) {
-      setMessage("Please enter your email");
+      setMessage("Please enter your email.");
       return;
     }
 
@@ -47,122 +49,96 @@ const Hero = () => {
     }
 
     setLoading(false);
-
     setTimeout(() => setMessage(""), 5000);
   };
 
   return (
     <section
       ref={ref}
-      className="relative bg-[#FFEBC7] py-16 md:py-24 overflow-hidden"
+      className="relative bg-[#CFE9FB] py-20 md:py-28 overflow-hidden"
     >
       {/* Center Background Pattern */}
       <img
         src={centerPattern}
         alt="Background pattern"
-        className="absolute inset-0 m-auto opacity-100 w-[900px] h-[1000px] object-contain z-0 pointer-events-none"
+        className="absolute inset-0 m-auto opacity-60 w-[900px] h-[1000px] object-contain z-0 pointer-events-none"
         style={{ transform: "translateY(10%)" }}
       />
 
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 items-center gap-12 font-geisel z-10">
-        {/* Left Side — Text + Input */}
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 items-center gap-12 z-10">
+        {/* Left Content */}
         <div className="text-left max-w-md md:max-w-lg mx-auto md:mx-0 order-2 md:order-1">
-          <h1 className="text-4xl sm:text-7xl md:text-7xl font-bold mb-4 leading-tight text-[#1C2024] text-center md:text-left">
-            Seamless cross border payments
+          <h1 className="text-4xl sm:text-6xl md:text-6xl font-bold mb-4 leading-tight text-[#04172C] text-center md:text-left">
+            Track Crypto Markets.
+            <br />
+            <span className="text-[#6CB6E8]">Analyze Smarter.</span>
           </h1>
 
-          <p className="text-[#000000]/80 text-sm md:text-base max-w-md mb-6 text-center md:text-left">
-            A secure multi-currency wallet that lets you deposit, withdraw, and
-            transfer both fiat and crypto across Africa and global markets.
+          <p className="text-[#5B728A] text-sm md:text-base max-w-md mb-8 text-center md:text-left">
+            CryptoGlance gives you real-time prices, historical charts, trending
+            assets, and curated crypto news — all in one fast, beautiful
+            dashboard.
           </p>
 
-          {/* Join Waitlist Input */}
+          {/* Waitlist Form */}
           <form
             onSubmit={handleSubmit}
-            className="
-              flex items-stretch
-              bg-[#4F3422]
-              rounded-lg sm:rounded-lg
-              overflow-hidden
-              w-full max-w-sm
-              mx-auto md:mx-0
-              transition-transform duration-300
-              hover:scale-[1.02]
-            "
+            className="flex items-stretch bg-white rounded-xl overflow-hidden w-full max-w-sm mx-auto md:mx-0 shadow-md transition-transform duration-300 hover:scale-[1.02]"
           >
             <input
               type="email"
-              name="newsletter subscription"
-              placeholder="Enter email"
+              placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={loading}
-              className="
-                flex-grow
-                px-3 py-2
-                sm:px-4 sm:py-3
-                bg-[#4F3422]
-                text-gray-100
-                placeholder:text-gray-400
-                text-xs sm:text-sm
-                focus:outline-none
-                disabled:opacity-50
-              "
+              className="flex-grow px-4 py-3 text-sm text-[#04172C] placeholder:text-[#5B728A] focus:outline-none disabled:opacity-50"
             />
 
             <button
               type="submit"
               disabled={loading}
-              className="
-                bg-[#FFBA18] text-[#4F3422]
-                px-2 py-3
-                sm:px-6 sm:py-3
-                text-xs sm:text-sm
-                font-semibold
-                border-2 border-[#4F3422]
-                rounded-lg sm:rounded-lg
-                whitespace-nowrap
-                flex-shrink-0
-                hover:bg-white hover:text-black
-                transition-all duration-300
-                disabled:opacity-50 disabled:cursor-not-allowed
-              "
+              className="bg-[#04172C] text-white px-5 py-3 text-sm font-semibold whitespace-nowrap hover:bg-[#06234A] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? "Joining..." : "Join waitlist"}
+              {loading ? "Joining..." : "Join Waitlist"}
             </button>
           </form>
 
-
           {message && (
-            <p className={`text-xs mt-2 text-center md:text-left ${message.includes("added") ? "text-green-700" : "text-red-700"}`}>
+            <p
+              className={`text-xs mt-2 text-center md:text-left ${
+                message.toLowerCase().includes("success")
+                  ? "text-green-600"
+                  : "text-red-600"
+              }`}
+            >
               {message}
             </p>
           )}
 
-          <p className="text-[#4F3422]/70 text-xs mt-3 text-center md:text-left">
-            Launching soon in 10+ countries
+          <p className="text-[#5B728A] text-xs mt-3 text-center md:text-left">
+            Launching soon · Global market coverage · Free access
           </p>
         </div>
 
-        {/* Right Side — Image + Floating Boxes */}
+        {/* Right Visual */}
         <motion.div
           style={{ scale }}
           className="relative flex justify-center md:justify-end mt-10 md:mt-0 order-1 md:order-2"
         >
           <motion.img
             src={heroMockup}
-            alt="App Mockup"
-            className="w-full sm:w-[70%] max-w-[400px] md:w-[420px] drop-shadow-2xl relative md:left-[10px] md:top-[86px]"
+            alt="Crypto dashboard preview"
+            className="w-full sm:w-[70%] max-w-[420px] md:w-[440px] drop-shadow-2xl relative md:left-[10px] md:top-[86px]"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           />
 
-          {/* Floating mini boxes */}
+          {/* Floating Info Cards */}
           {floatingBoxes.map((box, index) => (
             <motion.div
               key={index}
-              className="absolute bg-white shadow-lg rounded-xl px-3 py-2 flex items-center gap-2 scale-90 sm:scale-100"
+              className="absolute bg-white border border-[#E1EEF7] shadow-lg rounded-xl px-3 py-2 flex items-center gap-2 scale-90 sm:scale-100"
               style={{
                 top: box.top,
                 right: box.right,
@@ -186,11 +162,14 @@ const Hero = () => {
                 whileHover={{ rotate: 10 }}
                 transition={{ type: "spring", stiffness: 200 }}
               />
+
               <div>
-                <p className="text-sm font-semibold text-[#4F3422]">
+                <p className="text-sm font-semibold text-[#04172C]">
                   {box.amount}
                 </p>
-                <p className="text-[10px] text-gray-500">Bank transfer</p>
+                <p className="text-[10px] text-[#5B728A]">
+                  Live market price
+                </p>
               </div>
             </motion.div>
           ))}

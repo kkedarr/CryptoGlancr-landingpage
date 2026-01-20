@@ -8,27 +8,27 @@ import smeImg from "../assets/images/smeuser.png";
 const UsersSection = () => {
   const slides = [
     {
-      label: "Students",
+      label: "Crypto Beginners",
       description:
-        "Send and receive money globally with ease. Ideal for students, travelers, and everyday users managing multiple currencies.",
+        "Learn the market with simple charts, real-time prices, and beginner-friendly insights that make crypto easy to understand.",
       image: studentImg,
     },
     {
-      label: "Remote Workers & Creators",
+      label: "Traders & Analysts",
       description:
-        "Get paid in any currency, convert funds instantly, and withdraw to local accounts or crypto wallets.",
+        "Track trends, analyze price movements, monitor volume, and make smarter trading decisions with live data.",
       image: remoteImg,
     },
     {
-      label: "Individuals & Professionals",
+      label: "Developers & Builders",
       description:
-        "Manage cross-border payments and savings easily, whether for personal finance or client transactions.",
+        "Access reliable market data for dashboards, bots, research tools, and automated trading strategies.",
       image: individualImg,
     },
     {
-      label: "SMEs",
+      label: "Investors & Funds",
       description:
-        "Simplify cross border operations, pay suppliers, and manage team transactions securely",
+        "Monitor portfolios, identify opportunities, and stay ahead of market movements with actionable insights.",
       image: smeImg,
     },
   ];
@@ -41,7 +41,7 @@ const UsersSection = () => {
     if (isUserInteracting) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % slides.length);
-    }, 2000);
+    }, 2600);
     return () => clearInterval(interval);
   }, [isUserInteracting, slides.length]);
 
@@ -54,35 +54,33 @@ const UsersSection = () => {
     }, 10000);
   };
 
-  const visibleSlides = [
-    slides[activeIndex],
-    slides[(activeIndex + 1) % slides.length],
-  ];
-
   return (
     <section className="bg-white py-24 px-6 md:px-16 lg:px-32 overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        {/* Title & Subtitle */}
-        <div className="text-left mb-10">
-          <p className="text-[#AB6400] font-medium text-sm tracking-wide uppercase">
-            Who Can Use Glovest
+        {/* Header */}
+        <div className="text-left mb-12">
+          <p className="text-[#6CB6E8] font-semibold text-sm tracking-wide uppercase">
+            Who Uses CryptoGlance
           </p>
-          <h2 className="text-2xl md:text-4xl font-semibold text-[#1C2024] mt-2 tracking-tighter">
-            Built for Everyone in the Global Financial Network
+
+          <h2 className="text-2xl md:text-4xl font-bold text-[#04172C] mt-2 tracking-tight">
+            Built for everyone in the crypto ecosystem
           </h2>
-          <p className="text-gray-500 mt-4 max-w-2xl text-sm md:text-base text-[#838383]">
-            Whether you’re sending money home, managing international payments,
-            or growing your assets — Glovest makes cross-border finance simple,
-            fast, and secure.
+
+          <p className="text-[#5B728A] mt-4 max-w-2xl text-sm md:text-base">
+            Whether you're exploring crypto for the first time or building
+            advanced tools, CryptoGlance gives you clarity, speed, and reliable
+            market intelligence.
           </p>
         </div>
 
         {/* MOBILE VIEW */}
         <div className="flex flex-col gap-6 md:hidden mb-14">
           {slides.map((slide, i) => (
-            <div
+            <motion.div
               key={i}
-              className="bg-gray-50 border border-gray-200 rounded-2xl overflow-hidden shadow-sm"
+              whileHover={{ scale: 1.02 }}
+              className="bg-[#F6FBFF] border border-[#E1EEF7] rounded-2xl overflow-hidden shadow-sm"
             >
               <img
                 src={slide.image}
@@ -91,94 +89,73 @@ const UsersSection = () => {
               />
 
               <div className="px-5 py-5">
-                <span className="inline-block bg-black/5 text-sm px-3 py-1 rounded-full font-medium text-gray-700 mb-3">
+                <span className="inline-block bg-[#E0F2FF] text-[#04172C] text-sm px-3 py-1 rounded-full font-semibold mb-3">
                   {slide.label}
                 </span>
 
-                <p className="text-xs text-gray-700 leading-relaxed">
+                <p className="text-xs text-[#5B728A] leading-relaxed">
                   {slide.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* DESKTOP VIEW */}
         <div className="hidden md:block">
-        {/* Buttons */}
-        <div
-            className="
-            w-[740px]
-            border rounded-full flex flex-wrap
-            py-2 px-1 justify-center gap-4 mb-14
-            "
-        >
+          {/* Filter Buttons */}
+          <div className="w-[760px] border border-[#E1EEF7] bg-[#F8FCFF] rounded-full flex flex-wrap py-2 px-2 justify-center gap-3 mb-14 shadow-sm">
             {slides.map((slide, index) => (
-            <button
+              <button
                 key={index}
                 onClick={() => handleUserClick(index)}
-                className={`px-5 py-2 text-md rounded-full text-gray-500 transition-all duration-300 ${
-                activeIndex === index
-                    ? "bg-gray-100 text-gray-700 scale-105"
-                    : "bg-transparent hover:border hover:rounded-full hover:text-black hover:bg-gray-100 scale-100"
+                className={`px-5 py-2 text-sm rounded-full font-medium transition-all duration-300 ${
+                  activeIndex === index
+                    ? "bg-[#6CB6E8] text-white scale-105 shadow"
+                    : "text-[#5B728A] hover:bg-[#E0F2FF] hover:text-[#04172C]"
                 }`}
-            >
+              >
                 {slide.label}
-            </button>
+              </button>
             ))}
-        </div>
+          </div>
 
           {/* Carousel */}
-          <div className="relative w-full overflow-hidden h-[500px]">
+          <div className="relative w-full overflow-hidden h-[500px] rounded-3xl">
             <motion.div
-                className="flex gap-8 md:gap-10 transition-transform duration-700 ease-in-out"
-                animate={{
+              className="flex gap-8 transition-transform duration-700 ease-in-out"
+              animate={{
                 x: `-${activeIndex * 50}%`,
-                }}
-                transition={{
+              }}
+              transition={{
                 duration: 0.8,
                 ease: "easeInOut",
-                }}
+              }}
             >
-                {slides.concat(slides).map((slide, i) => (
+              {slides.concat(slides).map((slide, i) => (
                 <div
-              key={i}
-              className="min-w-[50%] flex-shrink-0 relative rounded-2xl overflow-hidden shadow-lg"
-            >
-              {/* Background */}
-              <img
-                src={slide.image}
-                alt={slide.label}
-                className="w-full h-[500px] object-cover rounded-2xl"
-              />
+                  key={i}
+                  className="min-w-[50%] flex-shrink-0 relative rounded-3xl overflow-hidden shadow-lg"
+                >
+                  <img
+                    src={slide.image}
+                    alt={slide.label}
+                    className="w-full h-[500px] object-cover"
+                  />
 
-              {/* Label */}
-              <span
-                className="
-                  absolute top-4 right-4
-                  bg-white/25 backdrop-blur-md
-                  text-sm px-3 py-1.5 rounded-full
-                  font-medium text-white tracking-wide
-                "
-              >
-                {slide.label}
-              </span>
+                  {/* Tag */}
+                  <span className="absolute top-4 right-4 bg-[#04172C]/70 backdrop-blur-md text-xs px-3 py-1.5 rounded-full font-semibold text-white tracking-wide">
+                    {slide.label}
+                  </span>
 
-              {/* Description Overlay */}
-              <div
-                className="
-                  absolute bottom-0 left-0 right-0
-                  bg-black/50 backdrop-blur-[1px]
-                  px-5 py-4
-                  text-white
-                "
-              >
-                <p className="text-sm md:text-base text-white leading-relaxed">
-                  {slide.description}
-                </p>
-              </div>
-            </div>
-                ))}
+                  {/* Description */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#04172C]/80 to-transparent px-6 py-5 text-white">
+                    <p className="text-sm md:text-base leading-relaxed">
+                      {slide.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>

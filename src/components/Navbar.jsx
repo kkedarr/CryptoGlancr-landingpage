@@ -1,16 +1,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../assets/images/gfilogo.png";
-import textLogo from "../assets/images/gfilogotext.png";
-import earlyaccesssvg from "../assets/images/earlyaccesssvg.png";
+import logo from "../assets/images/cryptoglancrlogo.png";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react"; // hamburger icons
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  {/* To detect scroll to adjust navbar styling */} 
+  // Detect scroll to adjust navbar styling
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -21,8 +19,8 @@ const Navbar = () => {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[#FFBA18]/90 shadow-md backdrop-blur-xl py-2"
-          : "bg-[#FFEBC7] border-b border-gray-200 py-3"
+          ? "bg-[#FFFFFF]/90 shadow-md backdrop-blur-xl py-2"
+          : "bg-[#CFE9FB] border-b border-[#E1EEF7] py-3"
       }`}
       initial={{ opacity: 0, y: -40 }}
       animate={{ opacity: 1, y: 0 }}
@@ -32,45 +30,32 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/">
           <motion.div
-            className="flex items-center gap-1 cursor-pointer select-none"
+            className="flex items-center gap-2 cursor-pointer select-none"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 150 }}
           >
             <img
               src={logo}
-              alt="Logo"
+              alt="CryptoGlance Logo"
               className="w-8 h-8 sm:w-9 sm:h-9 md:w-11 md:h-11 object-contain"
             />
-            <img
-              src={textLogo}
-              alt="Logo Text"
-              className="h-4 sm:h-5 md:h-6 object-contain max-w-[70px] sm:max-w-[100px]"
-            />
+
+            {/* Text Logo */}
+            <span className="font-bold text-[15px] sm:text-[17px] md:text-[19px] tracking-tight text-[#04172C] leading-none">
+              Crypto<span className="text-[#6CB6E8]">Glancr</span>
+            </span>
           </motion.div>
         </Link>
 
-        {/* Desktop Button */}
-        {/*<div className="hidden sm:block">
-          <motion.button
-            whileHover={{ scale: 0.97 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 bg-[#1C2024] text-white px-4 py-2 rounded-md font-medium text-sm md:text-base transition-all duration-300 hover:bg-black"
-          >
-            <span>Get Early Access</span>
-            <motion.img
-              src={earlyaccesssvg}
-              alt="Early Access Icon"
-              className="w-5 h-5"
-              animate={{ rotate: [0, 8, -8, 0] }}
-              transition={{
-                repeat: Infinity,
-                repeatDelay: 3,
-                duration: 1.2,
-                ease: "easeInOut",
-              }}
-            />
-          </motion.button>
-        </div> */}
+        {/* Desktop Navigation (placeholder for future links) */}
+        <div className="hidden sm:flex items-center gap-6">
+          {/* Example future links */}
+          {/* 
+          <Link className="text-[#04172C] hover:text-[#6CB6E8] transition">
+            Features
+          </Link>
+          */}
+        </div>
 
         {/* Mobile Menu Button */}
         <div className="sm:hidden flex items-center">
@@ -81,9 +66,9 @@ const Navbar = () => {
             className="ml-1"
           >
             {menuOpen ? (
-              <X className="w-6 h-6 text-[#1C2024]" />
+              <X className="w-6 h-6 text-[#04172C]" />
             ) : (
-              <Menu className="w-6 h-6 text-[#1C2024]" />
+              <Menu className="w-6 h-6 text-[#04172C]" />
             )}
           </motion.button>
         </div>
@@ -97,27 +82,20 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="sm:hidden bg-[#FFEBC7] border-t border-gray-300 shadow-md px-4 py-4"
+            className="sm:hidden bg-[#FFFFFF] border-t border-[#E1EEF7] shadow-md px-4 py-4"
           >
-            {/* <motion.button
-              whileHover={{ scale: 0.97 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full flex items-center justify-center gap-2 bg-[#1C2024] text-white px-5 py-3 rounded-md font-medium text-sm transition-all duration-300 hover:bg-black"
-            >
-              <span>Get Early Access</span>
-              <motion.img
-                src={earlyaccesssvg}
-                alt="Early Access Icon"
-                className="w-5 h-5"
-                animate={{ rotate: [0, 8, -8, 0] }}
-                transition={{
-                  repeat: Infinity,
-                  repeatDelay: 3,
-                  duration: 1.2,
-                  ease: "easeInOut",
-                }}
-              />
-            </motion.button> */}
+            <div className="flex flex-col gap-3">
+              {/* Example future mobile links */}
+              {/* 
+              <Link
+                to="/features"
+                onClick={() => setMenuOpen(false)}
+                className="text-[#04172C] font-medium"
+              >
+                Features
+              </Link>
+              */}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -126,3 +104,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
