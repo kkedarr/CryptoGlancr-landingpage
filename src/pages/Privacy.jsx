@@ -1,150 +1,136 @@
 import React from "react";
 import PrivacyIcon from "../assets/images/privacypolicyicon.png";
 
-
 const PrivacyPolicy = () => {
   return (
     <div className="w-full flex flex-col">
       {/* Header Section */}
-      <div className="w-full bg-[#FFEBC7] py-20 text-gray-900">
+      <div className="w-full bg-[#CFE9FB] py-20 text-[#04172C]">
         <div className="max-w-5xl mx-auto px-6 md:px-20">
           <div className="flex items-center gap-3 mb-4">
-            <h1 className="text-4xl md:text-5xl font-bold">Privacy policy</h1>
-            <img src={PrivacyIcon} className="w-8 h-8 text-gray-900" />
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+              Privacy Policy
+            </h1>
+            <img
+              src={PrivacyIcon}
+              alt="Privacy policy icon"
+              className="w-8 h-8"
+            />
           </div>
 
-          <p className="text-sm text-gray-800 mb-6">
+          <p className="text-sm text-[#5B728A] mb-6">
             Effective Date: <span className="font-semibold">August, 2025</span>
           </p>
 
-          <p className="text-base leading-relaxed text-gray-800 max-w-3xl">
-            At Global Financial Investment, your privacy is important to us. This
-            Privacy Policy explains how we collect, use, and protect your
-            personal information when you use our app and services.
+          <p className="text-base leading-relaxed text-[#0B1F33] max-w-3xl">
+            At CryptoGlancr, your privacy is important to us. This Privacy Policy
+            explains how we collect, use, and protect your personal information
+            when you use our website and related services.
           </p>
         </div>
       </div>
 
       {/* Content Section */}
-      <div className="w-full bg-white py-16 text-gray-900">
+      <div className="w-full bg-[#FFFFFF] py-16 text-[#0B1F33]">
         <div className="max-w-5xl mx-auto px-6 md:px-20 leading-relaxed">
+          
           {/* Information we collect */}
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">
               1. Information we collect
             </h2>
-            <p className="text-sm">
+            <p className="text-sm text-[#5B728A]">
               We may collect the following types of personal information:
             </p>
             <ul className="list-disc list-inside text-sm mt-2 space-y-1">
-              <li>Full name, email address, and phone number</li>
-              <li>Government–issued ID and selfie (for KYC verification)</li>
-              <li>Transaction and wallet activity</li>
-              <li>Device information and IP address</li>
+              <li>Name and email address</li>
+              <li>Waitlist or early-access submissions</li>
+              <li>Basic device and browser information</li>
+              <li>Usage analytics to improve performance</li>
             </ul>
           </section>
 
           {/* How We Use Your Information */}
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">
-              2. How We Use Your Information
+              2. How we use your information
             </h2>
-            <p className="text-sm mb-2">We use your information to:</p>
             <ul className="list-disc list-inside text-sm space-y-1">
-              <li>Create and manage your account</li>
-              <li>Verify your identity (KYC)</li>
-              <li>Process transactions and provide wallet services</li>
-              <li>Improve app performance and security</li>
-              <li>Comply with legal and regulatory requirements</li>
+              <li>Communicate product updates and launch notifications</li>
+              <li>Improve website functionality and user experience</li>
+              <li>Ensure platform security and prevent misuse</li>
             </ul>
           </section>
 
           {/* Data Sharing */}
           <section className="mb-8">
-            <h2 className="font-semibold text-lg mb-2">3. Data Sharing</h2>
-            <p className="text-sm mb-2">
-              We do not sell your personal information. We may share data with:
+            <h2 className="font-semibold text-lg mb-2">3. Data sharing</h2>
+            <p className="text-sm text-[#5B728A]">
+              We do not sell or rent personal data. Limited information may be
+              shared with trusted service providers strictly for operational
+              purposes.
             </p>
-            <ul className="list-disc list-inside text-sm space-y-1">
-              <li>
-                Verified third-party service providers (e.g., KYC providers,
-                payment processors)
-              </li>
-              <li>
-                Regulatory or law enforcement agencies, when required by law
-              </li>
-            </ul>
           </section>
 
           {/* Security */}
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">4. Security</h2>
-            <p className="text-sm mb-2">
-              We implement strong security measures, including:
+            <p className="text-sm text-[#5B728A]">
+              We apply reasonable technical and organizational measures to
+              protect user data. However, no online system can be guaranteed
+              100% secure.
             </p>
-            <ul className="list-disc list-inside text-sm space-y-1">
-              <li>End-to-end encryption</li>
-              <li>2-Factor Authentication (2FA)</li>
-              <li>Secure data storage</li>
-              <li>
-                Despite our efforts, no method of online transmission is 100%
-                secure.
-              </li>
-            </ul>
           </section>
 
           {/* Your rights */}
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">5. Your rights</h2>
-            <p className="text-sm mb-2">
-              Depending on your location, you may have the right to:
-            </p>
             <ul className="list-disc list-inside text-sm space-y-1">
-              <li>Access the data we hold about you</li>
+              <li>Request access to your personal data</li>
               <li>Request correction or deletion</li>
-              <li>Withdraw consent for non-essential data processing</li>
+              <li>Withdraw consent where applicable</li>
             </ul>
           </section>
 
           {/* Data retention */}
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">6. Data retention</h2>
-            <p className="text-sm text-black">
-              We retain your information as long as necessary to provide
-              services and comply with legal obligations.
+            <p className="text-sm text-[#5B728A]">
+              We retain personal data only for as long as necessary to fulfill
+              the purposes outlined in this policy.
             </p>
           </section>
 
-          {/* Cookies and Tracking */}
+          {/* Cookies */}
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">
-              7. Cookies and Tracking
+              7. Cookies and tracking
             </h2>
-            <p className="text-sm text-black">
-              We may use cookies and analytics tools to improve app performance
-              and user experience.
+            <p className="text-sm text-[#5B728A]">
+              Cookies and analytics tools may be used to understand usage
+              patterns and improve performance.
             </p>
           </section>
 
-          {/* Updates to This Policy */}
+          {/* Updates */}
           <section className="mb-8">
             <h2 className="font-semibold text-lg mb-2">
-              8. Updates to This Policy
+              8. Updates to this policy
             </h2>
-            <p className="text-sm text-black">
-              We may update this Privacy Policy periodically to reflect changes
-              in our practices or for operational, legal, or regulatory reasons.
+            <p className="text-sm text-[#5B728A]">
+              This policy may be updated periodically. Changes will be reflected
+              on this page.
             </p>
           </section>
 
-          {/* Contact us */}
+          {/* Contact */}
           <section>
             <h2 className="font-semibold text-lg mb-2">9. Contact us</h2>
-            <p className="text-sm text-black">
-              If you have any questions, contact us at:
+            <p className="text-sm text-[#5B728A]">
+              For questions regarding this Privacy Policy, contact:
               <br />
-              <span className="font-medium">
-                Email: globalfinancialinvestments@gmail.com
+              <span className="font-medium text-[#04172C]">
+                support@cryptoglancr.com
               </span>
             </p>
           </section>
@@ -155,4 +141,3 @@ const PrivacyPolicy = () => {
 };
 
 export default PrivacyPolicy;
-
