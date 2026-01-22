@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import WaitlistPhone from "../assets/images/waitlist-phone.png";
 import { joinWaitlist } from "../services/waitlistService";
 
 const JoinWaitlist = () => {
@@ -150,13 +149,6 @@ const JoinWaitlist = () => {
         viewport={{ once: true }}
         transition={{ delay: 0.3, duration: 0.7 }}
       >
-        <motion.img
-          src={WaitlistPhone}
-          alt="CryptoGlancr interface preview"
-          className="w-[200px] sm:w-[260px] md:w-[340px] object-contain"
-          whileHover={{ scale: 1.05, rotate: 1 }}
-          transition={{ type: "spring", stiffness: 120 }}
-        />
       </motion.div>
     </motion.section>
   );

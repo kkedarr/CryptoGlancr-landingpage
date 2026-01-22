@@ -1,112 +1,80 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Step1left from "../assets/images/step1left.png";
-import Step1right from "../assets/images/step1right.png";
-import Step2left from "../assets/images/step2left.png";
 import Step2right from "../assets/images/step2right.png";
 import Step3left from "../assets/images/step3left.png";
-import Step3right from "../assets/images/step3right.png";
 
 const GettingStarted = () => {
   return (
     <section className="w-full px-6 md:px-20 py-20 bg-white text-[#04172C] font-geist overflow-hidden">
       {/* Header */}
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto text-center mb-14"
+        className="max-w-3xl mx-auto text-center mb-16"
       >
-        <h2 className="text-2xl md:text-4xl font-bold tracking-tight">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
           Get started with CryptoGlance in minutes
         </h2>
-        <p className="text-[#5B728A] text-sm md:text-base mt-3 max-w-xl mx-auto">
-          No complex setup. Just powerful crypto insights at your fingertips.
+        <p className="text-[#5B728A] text-sm sm:text-base md:text-lg mt-4 leading-relaxed">
+          A simple workflow designed for traders and investors who want clarity,
+          speed, and accurate crypto market intelligence.
         </p>
       </motion.div>
 
       {/* Steps */}
-      <div className="flex flex-col items-center gap-12">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 md:gap-6 items-center md:items-stretch">
         {/* STEP 1 */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.6, type: "spring" }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row gap-6 items-center"
+          className="flex justify-center w-full md:w-[35%]"
         >
-          {/* Visual */}
-          <div className="relative w-full md:w-[570px] h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow hover:shadow-xl transition-all duration-300">
+          <div className="relative w-full h-[380px] md:h-[460px] rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
             <img
               src={Step1left}
-              alt="Create account"
+              alt="Create your workspace"
               className="w-full h-full object-cover"
             />
 
-            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[#EAF6FF] flex flex-col justify-center px-8 text-center">
-              <h3 className="text-2xl font-bold mb-2 tracking-tight text-[#04172C]">
+            <div className="absolute bottom-0 left-0 w-full bg-white/100 backdrop-blur-sm px-8 py-6">
+              <h3 className="text-xl md:text-2xl font-semibold mb-2">
                 1. Create your workspace
               </h3>
-              <p className="text-[#5B728A] text-sm leading-relaxed">
-                Sign up and personalize your dashboard to track the coins,
-                markets, and metrics that matter most to you.
+              <p className="text-[#5B728A] text-sm md:text-base leading-relaxed">
+                Set up your personalized dashboard to track the assets, markets,
+                and metrics that align with your trading or investment strategy.
               </p>
             </div>
           </div>
-
-          {/* Supporting Visual */}
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.4, type: "spring" }}
-            className="rounded-3xl overflow-hidden w-full md:w-[570px] h-[400px] md:h-[500px] shadow hover:shadow-xl transition-all duration-300"
-          >
-            <img
-              src={Step1right}
-              alt="Dashboard preview"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
         </motion.div>
 
         {/* STEP 2 */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.6, type: "spring" }}
+          transition={{ duration: 0.6, delay: 0.05 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row gap-6 items-center"
+          className="flex justify-center w-full md:w-[35%]"
         >
-          {/* Supporting Visual */}
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.4, type: "spring" }}
-            className="rounded-3xl overflow-hidden w-full md:w-[570px] h-[400px] md:h-[500px] shadow hover:shadow-xl transition-all duration-300"
-          >
-            <img
-              src={Step2left}
-              alt="Live market tracking"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-
-          {/* Visual */}
-          <div className="relative w-full md:w-[570px] h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow hover:shadow-xl transition-all duration-300">
+          <div className="relative w-full h-[380px] md:h-[460px] rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
             <img
               src={Step2right}
-              alt="Market analytics"
+              alt="Monitor crypto markets"
               className="w-full h-full object-cover"
             />
 
-            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[#F0FAFF] flex flex-col justify-center px-8 text-center">
-              <h3 className="text-2xl font-bold mb-2 tracking-tight text-[#04172C]">
-                2. Monitor the market in real time
+            <div className="absolute bottom-0 left-0 w-full bg-white/100 backdrop-blur-sm px-8 py-6">
+              <h3 className="text-xl md:text-2xl font-semibold mb-2">
+                2. Monitor markets in real time
               </h3>
-              <p className="text-[#5B728A] text-sm leading-relaxed">
+              <p className="text-[#5B728A] text-sm md:text-base leading-relaxed">
                 View live prices, charts, volume, and trends across major crypto
-                assets — all updated instantly.
+                assets — updated instantly as markets move.
               </p>
             </div>
           </div>
@@ -114,44 +82,29 @@ const GettingStarted = () => {
 
         {/* STEP 3 */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.6, type: "spring" }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
-          className="flex flex-col md:flex-row gap-6 items-center"
+          className="flex justify-center w-full md:w-[35%]"
         >
-          {/* Visual */}
-          <div className="relative w-full md:w-[570px] h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow hover:shadow-xl transition-all duration-300">
+          <div className="relative w-full h-[380px] md:h-[460px] rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
             <img
               src={Step3left}
-              alt="Insights and alerts"
+              alt="Act on insights"
               className="w-full h-full object-cover"
             />
 
-            <div className="absolute bottom-0 left-0 w-full h-1/2 bg-[#EEF3FF] flex flex-col justify-center px-8 text-center">
-              <h3 className="text-2xl font-bold mb-2 tracking-tight text-[#04172C]">
-                3. Act on powerful insights
+            <div className="absolute bottom-0 left-0 w-full bg-white/100 backdrop-blur-sm px-8 py-6">
+              <h3 className="text-xl md:text-2xl font-semibold mb-2">
+                3. Act on clear insights
               </h3>
-              <p className="text-[#5B728A] text-sm leading-relaxed">
-                Discover trends, set alerts, export data, and make confident
-                decisions backed by accurate market intelligence.
+              <p className="text-[#5B728A] text-sm md:text-base leading-relaxed">
+                Identify trends, follow key signals, and make confident decisions
+                backed by reliable data and curated crypto news.
               </p>
             </div>
           </div>
-
-          {/* Supporting Visual */}
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            transition={{ duration: 0.4, type: "spring" }}
-            className="rounded-3xl overflow-hidden w-full md:w-[570px] h-[400px] md:h-[500px] shadow hover:shadow-xl transition-all duration-300"
-          >
-            <img
-              src={Step3right}
-              alt="Analytics dashboard"
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
         </motion.div>
       </div>
     </section>

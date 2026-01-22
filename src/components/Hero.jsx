@@ -19,13 +19,13 @@ const Hero = () => {
     offset: ["start end", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.03]);
 
   const floatingBoxes = [
-    { top: "20%", right: "5%", flag: flagNG, amount: "₦1,250,000" },
-    { top: "55%", right: "5%", flag: flagNA, amount: "NAD 82,000" },
-    { top: "50%", left: "5%", flag: flagRU, amount: "₽410,000" },
-    { bottom: "10%", left: "0%", flag: flagZA, amount: "ZAR 320,000" },
+    { top: "18%", right: "6%", flag: flagNG, amount: "₦1,250,000" },
+    { top: "52%", right: "4%", flag: flagNA, amount: "NAD 82,000" },
+    { top: "48%", left: "6%", flag: flagRU, amount: "₽410,000" },
+    { bottom: "8%", left: "2%", flag: flagZA, amount: "ZAR 320,000" },
   ];
 
   const handleSubmit = async (e) => {
@@ -41,49 +41,68 @@ const Hero = () => {
 
     const result = await joinWaitlist(email);
 
-    if (result.success) {
-      setMessage(result.message);
-      setEmail("");
-    } else {
-      setMessage(result.message);
-    }
+    setMessage(result.message);
+    if (result.success) setEmail("");
 
     setLoading(false);
     setTimeout(() => setMessage(""), 5000);
   };
 
   return (
-    <section
-      ref={ref}
-      className="relative bg-[#CFE9FB] py-20 md:py-28 overflow-hidden"
-    >
-      {/* Center Background Pattern */}
+    <section ref={ref} className="relative bg-[#CFE9FB] overflow-hidden">
+      {/* Background Pattern */}
       <img
         src={centerPattern}
-        alt="Background pattern"
-        className="absolute inset-0 m-auto opacity-60 w-[900px] h-[1000px] object-contain z-0 pointer-events-none"
-        style={{ transform: "translateY(10%)" }}
+        alt=""
+        aria-hidden
+        className="absolute inset-0 m-auto w-[900px] h-[1000px] opacity-45 object-contain pointer-events-none"
       />
 
-      <div className="relative max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 items-center gap-12 z-10">
-        {/* Left Content */}
-        <div className="text-left max-w-md md:max-w-lg mx-auto md:mx-0 order-2 md:order-1">
-          <h1 className="text-4xl sm:text-6xl md:text-6xl font-bold mb-4 leading-tight text-[#04172C] text-center md:text-left">
-            Track Crypto Markets.
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-20 md:pt-28 pb-0 grid md:grid-cols-2 gap-16 items-start z-10">
+
+        {/* LEFT — CONTENT */}
+        <div className="max-w-xl mx-auto md:mx-0 text-center md:text-left">
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-[#04172C] mb-5"
+          >
+            Professional Insight Into
             <br />
-            <span className="text-[#6CB6E8]">Analyze Smarter.</span>
-          </h1>
+            <span className=" text-[#6CB6E8]">Global Crypto Markets</span>
+          </motion.h1>
 
-          <p className="text-[#5B728A] text-sm md:text-base max-w-md mb-8 text-center md:text-left">
-            CryptoGlance gives you real-time prices, historical charts, trending
-            assets, and curated crypto news — all in one fast, beautiful
-            dashboard.
-          </p>
+          {/* Primary Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-textPrimary text-sm sm:text-base md:text-md leading-relaxed mb-5"
+          >
+            CryptoGlance is a real-time crypto intelligence platform built for
+            traders and investors who need accurate prices, interactive charts,
+            and clear market context — all in one focused dashboard.
+          </motion.p>
 
-          {/* Waitlist Form */}
+          {/* Secondary Explanation */}
+          <motion.p
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-[#04172C] text-sm md:text-base leading-relaxed mb-8"
+          >
+            Track live assets, monitor trends as they form, and stay informed
+            with curated global crypto news that explains market movement
+            without noise or speculation.
+          </motion.p>
+
+          {/* WAITLIST FORM */}
           <form
             onSubmit={handleSubmit}
-            className="flex items-stretch bg-white rounded-xl overflow-hidden w-full max-w-sm mx-auto md:mx-0 shadow-md transition-transform duration-300 hover:scale-[1.02]"
+            className="flex items-stretch bg-white rounded-xl overflow-hidden w-full max-w-md mx-auto md:mx-0 shadow-lg"
           >
             <input
               type="email"
@@ -97,15 +116,15 @@ const Hero = () => {
             <button
               type="submit"
               disabled={loading}
-              className="bg-[#04172C] text-white px-5 py-3 text-sm font-semibold whitespace-nowrap hover:bg-[#06234A] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-[#04172C] text-white px-6 py-3 text-sm font-semibold hover:bg-[#06234A] transition disabled:opacity-50"
             >
-              {loading ? "Joining..." : "Join Waitlist"}
+              {loading ? "Joining..." : "Get Early Access"}
             </button>
           </form>
 
           {message && (
             <p
-              className={`text-xs mt-2 text-center md:text-left ${
+              className={`text-xs mt-3 ${
                 message.toLowerCase().includes("success")
                   ? "text-green-600"
                   : "text-red-600"
@@ -115,54 +134,51 @@ const Hero = () => {
             </p>
           )}
 
-          <p className="text-[#5B728A] text-xs mt-3 text-center md:text-left">
-            Launching soon · Global market coverage · Free access
+          <p className="text-[#5B728A] text-xs mt-4">
+            Launching soon · Real-time global markets · Free early access
           </p>
         </div>
 
-        {/* Right Visual */}
+        {/* RIGHT — VISUAL (BOTTOM-ALIGNED) */}
         <motion.div
           style={{ scale }}
-          className="relative flex justify-center md:justify-end mt-10 md:mt-0 order-1 md:order-2"
+          className="relative flex justify-center md:justify-end self-end"
         >
           <motion.img
             src={heroMockup}
-            alt="Crypto dashboard preview"
-            className="w-full sm:w-[70%] max-w-[420px] md:w-[440px] drop-shadow-2xl relative md:left-[10px] md:top-[86px]"
-            initial={{ opacity: 0, y: 40 }}
+            alt="CryptoGlance trading dashboard"
+            className="w-full max-w-[420px] md:max-w-[460px] drop-shadow-2xl translate-y-[2px]"
+            initial={{ opacity: 0, y: 36 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7 }}
           />
 
-          {/* Floating Info Cards */}
+          {/* Floating Market Cards */}
           {floatingBoxes.map((box, index) => (
             <motion.div
               key={index}
-              className="absolute bg-white border border-[#E1EEF7] shadow-lg rounded-xl px-3 py-2 flex items-center gap-2 scale-90 sm:scale-100"
+              className="absolute bg-white border border-[#E1EEF7] shadow-md rounded-xl px-3 py-2 flex items-center gap-2"
               style={{
                 top: box.top,
                 right: box.right,
                 left: box.left,
                 bottom: box.bottom,
               }}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{ scale: 1.1 }}
               transition={{
                 duration: 2,
                 repeat: Infinity,
                 repeatType: "mirror",
-                delay: index * 0.2,
+                delay: index * 0.3,
               }}
             >
-              <motion.img
+              <img
                 src={box.flag}
-                alt="flag"
-                className="w-7 h-7 rounded-full"
-                whileHover={{ rotate: 10 }}
-                transition={{ type: "spring", stiffness: 200 }}
+                alt=""
+                aria-hidden
+                className="w-6 h-6 rounded-full"
               />
-
               <div>
                 <p className="text-sm font-semibold text-[#04172C]">
                   {box.amount}
