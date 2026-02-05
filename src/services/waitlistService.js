@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://glovestapi-dev.up.railway.app/api/v1';
+const API_BASE_URL = 'https://cryptoglancr-dev.up.railway.app/api/v1';
 
 /**
  * Submit email to waitlist
@@ -19,12 +19,12 @@ export const joinWaitlist = async (email) => {
         const data = await response.json();
 
         if (!response.ok) {
-            throw new Error(data.message || 'Failed to join waitlist');
+            throw new Error(data.message || 'Failed to subscribe');
         }
 
         return {
             success: true,
-            message: data.data?.message || 'You have been added to the waitlist',
+            message: data.data?.message || 'You are now subscribed',
         };
     } catch (error) {
         return {
