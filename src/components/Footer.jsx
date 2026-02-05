@@ -75,7 +75,7 @@ const Footer = () => {
             </Link>
 
             <a
-              href="mailto:dausabstephanie3@gmail.com"
+              href="mailto:cryptoglancr@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
@@ -84,7 +84,7 @@ const Footer = () => {
             </a>
 
             <a
-              href="https://chat.whatsapp.com/HjsKmLrb3bA9Y9zevC0HeT"
+              href="https://chat.whatsapp.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"
