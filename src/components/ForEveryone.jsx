@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import studentImg from "../assets/images/studentuser.png";
-import remoteImg from "../assets/images/remoteuser.png";
-import individualImg from "../assets/images/individualuser.png";
-import smeImg from "../assets/images/smeuser.png";
+import cryptoBeginners from "../assets/images/cryptobeginners.jpg";
+import developersBuilders from "../assets/images/developersandbuilders.jpg";
+import tradersAnalysts from "../assets/images/tradersandanalysts.jpg";
+import investorsFunds from "../assets/images/investors.jpg";
 
 const UsersSection = () => {
   const slides = [
@@ -11,25 +11,25 @@ const UsersSection = () => {
       label: "Crypto Beginners",
       description:
         "Learn the market with simple charts, real-time prices, and beginner-friendly insights that make crypto easy to understand.",
-      image: studentImg,
+      image: cryptoBeginners,
     },
     {
       label: "Traders & Analysts",
       description:
         "Track trends, analyze price movements, monitor volume, and make smarter trading decisions with live data.",
-      image: remoteImg,
+      image: tradersAnalysts,
     },
     {
       label: "Developers & Builders",
       description:
         "Access reliable market data for dashboards, bots, research tools, and automated trading strategies.",
-      image: individualImg,
+      image: developersBuilders,
     },
     {
       label: "Investors & Funds",
       description:
         "Monitor portfolios, identify opportunities, and stay ahead of market movements with actionable insights.",
-      image: smeImg,
+      image: investorsFunds,
     },
   ];
 
@@ -140,7 +140,7 @@ const UsersSection = () => {
                   <img
                     src={slide.image}
                     alt={slide.label}
-                    className="w-full h-[500px] object-cover"
+                    className="w-full h-[450px] object-cover"
                   />
 
                   {/* Tag */}
@@ -149,8 +149,8 @@ const UsersSection = () => {
                   </span>
 
                   {/* Description */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#04172C]/80 to-transparent px-6 py-5 text-white">
-                    <p className="text-sm md:text-base leading-relaxed">
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#04172C]/80  px-6 py-5 text-white">
+                    <p className="text-sm md:text-base text-white leading-relaxed">
                       {slide.description}
                     </p>
                   </div>

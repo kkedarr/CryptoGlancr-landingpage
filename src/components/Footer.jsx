@@ -125,7 +125,7 @@ const Footer = () => {
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#6CB6E8] text-[#04172C] px-6 py-3 text-sm font-semibold border-l border-[#CFE9FB] hover:bg-white transition"
               >
-                {loading ? "Joining..." : "Join waitlist"}
+                {loading ? "Joining..." : "Subscribe"}
               </motion.button>
             </motion.div>
 

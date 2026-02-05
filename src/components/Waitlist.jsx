@@ -60,11 +60,11 @@ const JoinWaitlist = () => {
         viewport={{ once: true }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-3 tracking-tighter leading-snug">
+        <h2 className="text-xl md:text-4xl text-surface font-semibold mb-3 tracking-tighter leading-snug">
           Get early access to CryptoGlancr
         </h2>
 
-        <p className="text-textSecondary mb-6 text-sm md:text-base max-w-md mx-auto md:mx-0">
+        <p className="text-surface mb-6 text-sm md:text-base max-w-md mx-auto md:mx-0">
           Join the waitlist to receive product updates, early previews,
           and launch notifications as CryptoGlancr evolves.
         </p>
@@ -119,7 +119,7 @@ const JoinWaitlist = () => {
                 disabled:opacity-50 disabled:cursor-not-allowed
               "
             >
-              {loading ? "Joining..." : "Join waitlist"}
+              {loading ? "Joining..." : "Subscribe"}
             </motion.button>
           </div>
 
@@ -135,7 +135,7 @@ const JoinWaitlist = () => {
             </p>
           )}
         </form>
-        <p className="text-[11px] text-textSecondary mt-3">
+        <p className="text-[11px] text-surface mt-3">
           CryptoGlancr is a concept product. Features are subject to change.
         </p>
 

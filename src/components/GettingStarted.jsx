@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Step1left from "../assets/images/step1left.png";
 import Step2right from "../assets/images/step2right.png";
 import Step3left from "../assets/images/step3left.png";
+import heroMockup from "../assets/images/heromockup.png";
 
 const GettingStarted = () => {
   return (
@@ -34,15 +35,30 @@ const GettingStarted = () => {
           viewport={{ once: true }}
           className="flex justify-center w-full md:w-[35%]"
         >
-          <div className="relative w-full h-[380px] md:h-[460px] rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
+          <div className="
+            relative
+            w-full
+            h-[50vh] md:h-[460px]
+            max-h-[520px]
+            rounded-3xl
+            overflow-hidden
+            shadow-md hover:shadow-xl
+            transition-shadow
+          ">
             <img
-              src={Step1left}
+              src={heroMockup}
               alt="Create your workspace"
-              className="w-full h-full object-cover"
+              className="
+                w-full
+                h-full
+                object-cover
+                object-top
+              "
             />
 
-            <div className="absolute bottom-0 left-0 w-full bg-white/100 backdrop-blur-sm px-8 py-6">
-              <h3 className="text-xl md:text-2xl font-semibold mb-2">
+            {/* Content Overlay */}
+            <div className="absolute bottom-0 left-0 w-full bg-white/95 backdrop-blur-sm px-6 md:px-8 py-5 md:py-6">
+              <h3 className="text-lg md:text-2xl font-semibold mb-2">
                 1. Create your workspace
               </h3>
               <p className="text-[#5B728A] text-sm md:text-base leading-relaxed">
@@ -63,9 +79,9 @@ const GettingStarted = () => {
         >
           <div className="relative w-full h-[380px] md:h-[460px] rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
             <img
-              src={Step2right}
+              src={heroMockup}
               alt="Monitor crypto markets"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
 
             <div className="absolute bottom-0 left-0 w-full bg-white/100 backdrop-blur-sm px-8 py-6">
@@ -90,9 +106,9 @@ const GettingStarted = () => {
         >
           <div className="relative w-full h-[380px] md:h-[460px] rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
             <img
-              src={Step3left}
+              src={heroMockup}
               alt="Act on insights"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
 
             <div className="absolute bottom-0 left-0 w-full bg-white/100 backdrop-blur-sm px-8 py-6">

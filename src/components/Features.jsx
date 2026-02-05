@@ -4,37 +4,39 @@ import SeamlessP2PImage1 from "../assets/images/seamlessptopimage1.png";
 import SeamlessP2PImage2 from "../assets/images/seamlessptopimage2.png";
 import SeamlessP2PImage3 from "../assets/images/seamlessptopimage3.png";
 
-import FlagNG from "../assets/images/flowerflag1.png";
-import FlagKE from "../assets/images/flowerflag2.png";
-import FlagRU from "../assets/images/flowerflag3.png";
-import FlagGH from "../assets/images/flowerflag4.png";
-import FlagZA from "../assets/images/flowerflag5.png";
-import FlagNA from "../assets/images/flowerflag6.png";
-import FlagGN from "../assets/images/flowerflag7.png";
-import FlagTZ from "../assets/images/flowerflag8.png";
-import FlagBW from "../assets/images/flowerflag9.png";
-import FlagZM from "../assets/images/flowerflag10.png";
-import FlagGH2 from "../assets/images/flowerflag11.png";
-import FlagCI from "../assets/images/flowerflag12.png";
+import {
+  SiBitcoin,
+  SiEthereum,
+  SiSolana,
+  SiBinance,
+  SiPolygon,
+  SiCardano,
+  SiRipple,
+  SiDogecoin,
+} from "react-icons/si";
+
+import { FaChartLine, FaCoins, FaBolt, FaShieldAlt } from "react-icons/fa";
+
 
 const Feature = () => {
   // Flag positions for large screens
   const flagLayout = [
-    { src: FlagNG, top: "15%", left: "5%" },
-    { src: FlagKE, top: "15%", left: "28%" },
-    { src: FlagRU, top: "15%", left: "51%" },
-    { src: FlagGH, top: "15%", left: "74%" },
+  { icon: SiBitcoin, top: "15%", left: "5%", color: "#F7931A" },
+  { icon: SiEthereum, top: "15%", left: "28%", color: "#627EEA" },
+  { icon: SiSolana, top: "15%", left: "51%", color: "#00FFA3" },
+  { icon: SiBinance, top: "15%", left: "74%", color: "#F3BA2F" },
 
-    { src: FlagZA, top: "45%", left: "18%" },
-    { src: FlagNA, top: "45%", left: "41%" },
-    { src: FlagGN, top: "45%", left: "64%" },
-    { src: FlagTZ, top: "45%", left: "87%" },
+  { icon: SiPolygon, top: "45%", left: "18%", color: "#8247E5" },
+  { icon: SiCardano, top: "45%", left: "41%", color: "#0033AD" },
+  { icon: SiRipple, top: "45%", left: "64%", color: "#0085C0" },
+  { icon: SiDogecoin, top: "45%", left: "87%", color: "#C2A633" },
 
-    { src: FlagBW, top: "75%", left: "5%" },
-    { src: FlagZM, top: "75%", left: "28%" },
-    { src: FlagGH2, top: "75%", left: "51%" },
-    { src: FlagCI, top: "75%", left: "74%" },
-  ];
+  { icon: FaChartLine, top: "75%", left: "5%", color: "#16A34A" },
+  { icon: FaCoins, top: "75%", left: "28%", color: "#F59E0B" },
+  { icon: FaBolt, top: "75%", left: "51%", color: "#EAB308" },
+  { icon: FaShieldAlt, top: "75%", left: "74%", color: "#2563EB" },
+];
+
 
   return (
     <section className="w-full px-4 sm:px-6 md:px-20 py-16 bg-white text-[#04172C] overflow-visible">
@@ -94,46 +96,48 @@ const Feature = () => {
             <div className="relative md:w-[45%] w-full h-[360px] sm:h-[420px] md:h-[430px] pt-8">
               {/* Desktop Layout */}
               <div className="hidden sm:block w-full h-full relative">
-                {flagLayout.map((flag, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute flex items-center justify-center"
-                    style={{
-                      top: flag.top,
-                      left: flag.left,
-                      transform: "translate(-50%, -50%)",
-                      width: "90px",
-                      height: "90px",
-                    }}
-                  >
-                    <motion.img
-                      src={flag.src}
-                      alt={`flag-${i}`}
-                      className="w-full h-full object-contain"
+                {flagLayout.map((item, i) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <motion.div
+                      key={i}
+                      className="absolute flex items-center justify-center"
+                      style={{
+                        top: item.top,
+                        left: item.left,
+                        transform: "translate(-50%, -50%)",
+                        width: "90px",
+                        height: "90px",
+                      }}
                       whileHover={{ scale: 1.15, rotate: 6 }}
                       transition={{ type: "spring", stiffness: 200 }}
-                    />
-                  </motion.div>
-                ))}
+                    >
+                      <Icon size={42} color={item.color} />
+                    </motion.div>
+                  );
+                })}
               </div>
+
 
               {/* Mobile Layout */}
               <div className="sm:hidden grid grid-cols-3 gap-3 place-items-center">
-                {[
-                  FlagNG, FlagKE, FlagRU, FlagGH,
-                  FlagZA, FlagNA, FlagGN, FlagTZ,
-                  FlagBW, FlagZM, FlagGH2, FlagCI,
-                ].map((flag, i) => (
-                  <motion.img
-                    key={i}
-                    src={flag}
-                    alt={`flag-mobile-${i}`}
-                    className="w-[70px] h-[70px] object-contain"
-                    whileHover={{ scale: 1.1, rotate: 4 }}
-                    transition={{ type: "spring", stiffness: 200 }}
-                  />
-                ))}
+                {flagLayout.map((item, i) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <motion.div
+                      key={i}
+                      className="w-[70px] h-[70px] flex items-center justify-center"
+                      whileHover={{ scale: 1.1, rotate: 4 }}
+                      transition={{ type: "spring", stiffness: 200 }}
+                    >
+                      <Icon size={34} color={item.color} />
+                    </motion.div>
+                  );
+                })}
               </div>
+
             </div>
           </div>
         </motion.div>
